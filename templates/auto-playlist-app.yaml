@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: auto-playlist
-  namespace: argocd
+  # namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -13,14 +13,7 @@ spec:
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
-
-
-  # Destination cluster and namespace to deploy the application
-  #destination:
-  #  server: https://kubernetes.default.svc
-    # The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace
-    #namespace: guestbook
+    namespace: auto-playlist
 
   # Sync policy
   syncPolicy:
@@ -31,8 +24,8 @@ spec:
     syncOptions:     # Sync options which modifies sync behavior
     #- Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
     - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
-    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
-    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    #- PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    #- PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
     # The retry feature is available since v1.7
     # retry:
     #   limit: 5 # number of failed sync attempt retries; unlimited number of attempts if less than 0
