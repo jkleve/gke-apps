@@ -5,7 +5,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/jkleve/auto-playlist
+    repoURL: https://github.com/jkleve/auto-playlist.git
     path: cfgs/helm
     targetRevision: main
   destination:
