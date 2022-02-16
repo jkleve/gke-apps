@@ -7,7 +7,7 @@ spec:
   source:
     repoURL: https://github.com/jkleve/auto-playlist
     path: cfgs/helm
-    targetRevision: deploy
+    targetRevision: main
   destination:
     server: https://kubernetes.default.svc
     namespace: auto-playlist
